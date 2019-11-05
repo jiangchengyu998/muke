@@ -22,9 +22,23 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     private ProductInfoRepository productInfoRepository;
 
+    /**
+     * 查询所有商品列表
+     * @return 商品列表
+     */
     @Override
     public List<ProductInfo> findUpAll() {
         return productInfoRepository.findByProductStatus(ProductStatusEnum.UP.getCode());
+    }
+
+    /**
+     * 查询商品列表
+     * @param productIdList 商品id列表
+     * @return 商品列表
+     */
+    @Override
+    public List<ProductInfo> findList(List<String> productIdList) {
+        return productInfoRepository.findByProductIdIn(productIdList);
     }
 
 }

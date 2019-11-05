@@ -12,6 +12,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -72,5 +74,15 @@ public class ProductController {
 
 
         return ResultVOUtils.success(productVOList);
+    }
+
+    /**
+     * 根据商品id查询商品列表(订单服务用)
+     * @param productList 商品id列表
+     * @return 商品列表
+     */
+    @PostMapping("/listForOrder")
+    public List<ProductInfo> listForOrder(@RequestBody List<String> productList) {
+        return productService.findList(productList);
     }
 }
