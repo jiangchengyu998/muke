@@ -8,6 +8,7 @@ import com.imooc.product.dataobject.ProductInfo;
 import com.imooc.product.service.CategoryService;
 import com.imooc.product.service.ProductService;
 import com.imooc.product.utils.ResultVOUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +28,7 @@ import java.util.stream.Collectors;
  **/
 @RestController
 @RequestMapping("/product")
+@Slf4j
 public class ProductController {
 
     @Autowired
@@ -40,9 +42,10 @@ public class ProductController {
      * 2. 获取类目type列表
      * 3. 查询类目
      * 4. 构造数据
+     * @return
      */
     @GetMapping("/list")
-    public ResultVO<ProductVO> list(){
+    public ResultVO<List<ProductVO>> list(){
         // 1. 查询所有在架的商品
         List<ProductInfo> productInfoList = productService.findUpAll();
         // 2. 获取类目type列表
