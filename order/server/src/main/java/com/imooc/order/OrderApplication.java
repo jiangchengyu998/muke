@@ -7,7 +7,7 @@ import org.springframework.cloud.netflix.feign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableDiscoveryClient    // 作为
-@EnableFeignClients
+@EnableFeignClients(basePackages = "com.imooc.product.client")
 public class OrderApplication {
 
     public static void main(String[] args) {
