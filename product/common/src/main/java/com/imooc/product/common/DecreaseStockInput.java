@@ -1,0 +1,24 @@
+package com.imooc.product.common;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+/**
+ * @ClassName DecreaseStockInput
+ * @Description: 减库存入参
+ * @Author jiangchengyu
+ * @Date 2019/11/6
+ * @Version V1.0
+ **/
+@Data
+@NoArgsConstructor
+public class DecreaseStockInput {
+    private String productId;
+
+    private Integer productQuantity;
+
+    public DecreaseStockInput(String productId, Integer productQuantity) {
+        this.productId = productId;
+        this.productQuantity = productQuantity;
+    }
+}

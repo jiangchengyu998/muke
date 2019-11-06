@@ -1,18 +1,21 @@
 package com.imooc.product.service.impl;
 
-import com.imooc.product.dto.CartDTO;
+import com.imooc.product.common.DecreaseStockInput;
+import com.imooc.product.common.ProductInfoOutput;
 import com.imooc.product.dataobject.ProductInfo;
 import com.imooc.product.enums.ProductStatusEnum;
 import com.imooc.product.enums.ResultEnum;
 import com.imooc.product.exception.ProductException;
 import com.imooc.product.repository.ProductInfoRepository;
 import com.imooc.product.service.ProductService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * @ClassName ProductServiceImpl
@@ -42,18 +45,24 @@ public class ProductServiceImpl implements ProductService {
      * @return 商品列表
      */
     @Override
-    public List<ProductInfo> findList(List<String> productIdList) {
-        return productInfoRepository.findByProductIdIn(productIdList);
+    public List<ProductInfoOutput> findList(List<String> productIdList) {
+        return productInfoRepository.findByProductIdIn(productIdList).stream()
+                .map(e -> {
+                    ProductInfoOutput productInfoOutput = new ProductInfoOutput();
+                    BeanUtils.copyProperties(e, productInfoOutput);
+                    return productInfoOutput;
+                })
+                .collect(Collectors.toList());
     }
 
     /**
      * 扣库存
-     * @param cartDTOList 购物车列表
+     * @param stockInputList 购物车列表
      */
     @Override
     @Transactional
-    public void decreaseStock(List<CartDTO> cartDTOList) {
-        cartDTOList.forEach(cartDTO -> {
+    public void decreaseStock(List<DecreaseStockInput> stockInputList) {
+        stockInputList.forEach(cartDTO -> {
             Optional<ProductInfo> productInfoOptional = productInfoRepository.findById(cartDTO.getProductId());
 
             // 判断商品是否存在

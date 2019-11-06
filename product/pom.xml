@@ -9,9 +9,9 @@
     <version>0.0.1-SNAPSHOT</version>
 
     <modules>
-<!--        <module>common</module>-->
-<!--        <module>server</module>-->
-<!--        <module>client</module>-->
+        <module>server</module>
+        <module>common</module>
+        <module>client</module>
     </modules>
     <packaging>pom</packaging>
     <name>product</name>
@@ -41,11 +41,11 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-<!--            <dependency>-->
-<!--                <groupId>com.imooc</groupId>-->
-<!--                <artifactId>product-common</artifactId>-->
-<!--                <version>${product-common.version}</version>-->
-<!--            </dependency>-->
+            <dependency>
+                <groupId>com.imooc</groupId>
+                <artifactId>product-common</artifactId>
+                <version>${product-common.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>org.springframework.cloud</groupId>

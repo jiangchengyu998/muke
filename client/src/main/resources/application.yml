@@ -1,9 +1,0 @@
-eureka:
-  instance:
-    hostname: clientName   # \u5728eureka\u9875\u9762\u70B9\u51FB\u540E\u8DF3\u8F6C\u7684\u5730\u5740
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka/    # \u6CE8\u518C\u5230eureka\u7684\u5730\u5740
-spring:
-  application:
-    name: client   # \u9879\u76EE\u7684\u540D\u79F0

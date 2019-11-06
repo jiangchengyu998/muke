@@ -36,10 +36,10 @@
             <artifactId>lombok</artifactId>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>com.imooc</groupId>-->
-<!--            <artifactId>product-common</artifactId>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>com.imooc</groupId>
+            <artifactId>product-common</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
