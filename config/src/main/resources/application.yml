@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/jiangchengyu998/config-repo.git
+          username:
+          password:
+          basedir: F:\learn\muke\config\basedir
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
