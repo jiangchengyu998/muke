@@ -86,9 +86,10 @@ public class ProductServiceImpl implements ProductService {
 
             productInfo.setProductStock(result);
             productInfoRepository.save(productInfo);
-
+            ProductInfoOutput productInfoOutput = new ProductInfoOutput();
             // 发送mq消息
-            amqpTemplate.convertAndSend("productInfo", JsonUtil.toJson(productInfo));
+            BeanUtils.copyProperties(productInfo, productInfoOutput);
+            amqpTemplate.convertAndSend("productInfo", JsonUtil.toJson(productInfoOutput));
             log.info("发送成功");
 
         });
