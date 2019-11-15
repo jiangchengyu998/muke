@@ -1,0 +1,33 @@
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: CONFIG
+      profile: dev
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8762/eureka/
+  instance:
+    prefer-ip-address: true
+server:
+  port: 9000
+#zuul:
+#  routes:
+#    myProduct:   # 这个可以随便写
+#       path: /myProduct/**
+#       serviceId: product
+#      sensitiveHeaders:     # 默认 "Cookie", "Set-Cookie", "Authorization" 把这三个去掉，改为空后才能传递Cookie
+#    # 简洁写法
+##    product: /myProduct/**
+#  # 排除路由的url
+#  ignored-patterns:
+#    - /**/product/listForOrder
+#management:
+#  security:
+#    enabled: false  # 加上这个就可以使用  /application/routes 查看映射地址
