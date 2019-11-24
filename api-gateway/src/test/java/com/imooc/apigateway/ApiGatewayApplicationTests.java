@@ -4,7 +4,7 @@ import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ApiGetwayApplicationTests {
+class ApiGatewayApplicationTests {
 
     @Test
     void contextLoads() {
