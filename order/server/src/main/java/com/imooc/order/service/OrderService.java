@@ -11,4 +11,6 @@ import com.imooc.order.dto.OrderDTO;
  **/
 public interface OrderService {
     OrderDTO create(OrderDTO dto);
+
+    OrderDTO finish(String orderId);
 }
