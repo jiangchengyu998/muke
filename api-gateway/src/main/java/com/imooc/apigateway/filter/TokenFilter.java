@@ -39,6 +39,8 @@ public class TokenFilter extends ZuulFilter {
     public Object run() {
         RequestContext currentContext = RequestContext.getCurrentContext();
         HttpServletRequest request = currentContext.getRequest();
+
+        // 从URL参数获取，也可以从cookie、header获取
         String token = request.getParameter("token");
         if (StringUtils.isEmpty(token)) {
             currentContext.setSendZuulResponse(false);
