@@ -1,4 +1,4 @@
-package com.imooc.user.utils;
+package com.imooc.apigateway.utils;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
