@@ -7,6 +7,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 /**
  * 跨域配置
@@ -20,8 +21,8 @@ public class CorsConfig {
     public CorsFilter corsFilter(){
         final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         final CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(Arrays.asList("*"));
-        config.setAllowedHeaders(Arrays.asList("*"));
+        config.setAllowedOrigins(Collections.singletonList("*"));
+        config.setAllowedHeaders(Collections.singletonList("*"));
         config.setAllowedMethods(Arrays.asList("*"));
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
