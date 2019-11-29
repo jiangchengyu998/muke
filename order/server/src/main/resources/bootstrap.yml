@@ -31,3 +31,16 @@ eureka:
       defaultZone: http://localhost:8762/eureka/
   instance:
     prefer-ip-address: true
+
+hystrix:
+  command:
+    default:  # 全局的配置
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000
+    getProductInfoList:   # 为这个方法单独设置超时时间
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000
