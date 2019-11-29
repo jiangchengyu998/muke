@@ -43,7 +43,9 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 3000
+            timeoutInMilliseconds: 1000
 feign:
   hystrix:
     enabled: true
+management:
+  context-path: /
