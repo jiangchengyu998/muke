@@ -24,6 +24,11 @@ spring:
         myMessage:
           group: order   # 把服务进行分组，启动多个实例只有一个实例能接收到消息
           content-type: application/json
+  zipkin:
+    base-url: http://47.105.169.153:3307/
+  sleuth:
+    sampler:
+      percentage: 1
 
 eureka:
   client:
@@ -49,3 +54,6 @@ feign:
     enabled: true
 management:
   context-path: /
+logging:
+  level:
+    org.springframework.cloud.netflix.feign: debug
