@@ -1,3 +1,3 @@
 
 # 安装zipkin
-`docker run -d -p 3307:9411 openzipkin/zipkin`
+`docker run -d -p 9411:9411 openzipkin/zipkin`
