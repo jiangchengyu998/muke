@@ -31,3 +31,12 @@ server:
 #management:
 #  security:
 #    enabled: false  # 加上这个就可以使用  /application/routes 查看映射地址
+
+# zuul 依赖于hystrix ，所以要配置超时时间
+hystrix:
+  command:
+    default:  # 全局的配置
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000

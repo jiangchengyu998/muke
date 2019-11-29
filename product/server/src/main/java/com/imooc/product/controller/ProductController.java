@@ -47,6 +47,11 @@ public class ProductController {
     @GetMapping("/list")
     @CrossOrigin(allowCredentials = "true")   // 对单个接口进行跨域设置
     public ResultVO<List<ProductVO>> list(){
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         // 1. 查询所有在架的商品
         List<ProductInfo> productInfoList = productService.findUpAll();
         // 2. 获取类目type列表
