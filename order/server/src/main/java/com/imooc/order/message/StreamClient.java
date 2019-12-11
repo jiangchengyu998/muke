@@ -20,13 +20,13 @@ public interface StreamClient {
     @Input(StreamClient.INPUT)
     SubscribableChannel input();
 
-    @Output(StreamClient.INPUT)
+    @Output(StreamClient.INPUT2)
     MessageChannel output();
 
-    @Input(StreamClient.INPUT2)
-    SubscribableChannel input2();
-
-    @Output(StreamClient.INPUT2)
-    MessageChannel output2();
+//    @Input(StreamClient.INPUT2)
+//    SubscribableChannel input2();
+//
+//    @Output(StreamClient.INPUT2)
+//    MessageChannel output2();
 
 }
