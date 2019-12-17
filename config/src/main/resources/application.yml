@@ -8,7 +8,7 @@ spring:
           uri: https://github.com/jiangchengyu998/config-repo.git
           username:
           password:
-          basedir: F:\learn\muke\config\basedir
+          basedir: /root/muke/basedir
 eureka:
   client:
     service-url:
