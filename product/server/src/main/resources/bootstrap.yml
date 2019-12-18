@@ -9,10 +9,13 @@ spring:
       profile: dev
 eureka:
   instance:
-    prefer-ip-address: true   # \u4F7F\u7528ip\u5730\u5740\u8BBF\u95EEeureka
+    prefer-ip-address: false   # \u4F7F\u7528ip\u5730\u5740\u8BBF\u95EEeureka
+    ip-address: 47.105.169.153
   client:
     service-url:
-      defaultZone: http://localhost:8762/eureka/
+      defaultZone: http://47.105.169.153:3310/eureka/
 logging:
   level:
     org.springframework.cloud.netflix.feign: debug
+server:
+  port: 3309
