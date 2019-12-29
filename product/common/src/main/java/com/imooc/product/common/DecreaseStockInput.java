@@ -11,11 +11,13 @@ import lombok.NoArgsConstructor;
  * @Version V1.0
  **/
 @Data
-@NoArgsConstructor
 public class DecreaseStockInput {
     private String productId;
 
     private Integer productQuantity;
+
+    public DecreaseStockInput() {
+    }
 
     public DecreaseStockInput(String productId, Integer productQuantity) {
         this.productId = productId;
