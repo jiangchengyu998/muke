@@ -7,6 +7,13 @@ spring:
         enabled: true
         service-id: CONFIG
       profile: dev
+  zipkin:
+    base-url: http://192.168.149.10:9411/
+    sender:
+      type: web
+  sleuth:
+    sampler:
+      probability: 1
 eureka:
   instance:
     prefer-ip-address: true   # \u4F7F\u7528ip\u5730\u5740\u8BBF\u95EEeureka

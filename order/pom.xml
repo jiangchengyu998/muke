@@ -32,6 +32,7 @@
         <spring-cloud.version>Finchley.SR2</spring-cloud.version>
         <product-client.version>0.0.1-SNAPSHOT</product-client.version>
         <order-common.version>0.0.1-SNAPSHOT</order-common.version>
+        <logback-gelf.version>2.2.0</logback-gelf.version>
     </properties>
 
     <dependencyManagement>
@@ -52,6 +53,11 @@
                 <groupId>com.imooc</groupId>
                 <artifactId>order-common</artifactId>
                 <version>${order-common.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>de.siegmar</groupId>
+                <artifactId>logback-gelf</artifactId>
+                <version>${logback-gelf.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
