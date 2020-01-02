@@ -1,0 +1,43 @@
+<configuration>
+
+    <appender name="consoleLog" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>
+                %d - %msg%n
+            </pattern>
+        </layout>
+    </appender>
+
+    <appender name="GELF" class="de.siegmar.logbackgelf.GelfUdpAppender">
+        <graylogHost>192.168.149.10</graylogHost>
+        <graylogPort>12201</graylogPort>
+        <maxChunkSize>508</maxChunkSize>
+        <useCompression>true</useCompression>
+        <encoder class="de.siegmar.logbackgelf.GelfEncoder">
+            <!--<originHost>localhost</originHost>-->
+            <includeRawMessage>false</includeRawMessage>
+            <includeMarker>true</includeMarker>
+            <includeMdcData>true</includeMdcData>
+            <includeCallerData>false</includeCallerData>
+            <includeRootCauseData>false</includeRootCauseData>
+            <includeLevelName>true</includeLevelName>
+            <shortPatternLayout class="ch.qos.logback.classic.PatternLayout">
+                <pattern>%d - %m%nopex</pattern>
+            </shortPatternLayout>
+            <fullPatternLayout class="ch.qos.logback.classic.PatternLayout">
+                <pattern>%d - %m%n</pattern>
+            </fullPatternLayout>
+            <numbersAsString>false</numbersAsString>
+            <staticField>app_name:order</staticField>
+            <staticField>os_arch:${os.arch}</staticField>
+            <staticField>os_name:${os.name}</staticField>
+            <staticField>os_version:${os.version}</staticField>
+        </encoder>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="consoleLog" />
+        <appender-ref ref="GELF" />
+    </root>
+
+</configuration>

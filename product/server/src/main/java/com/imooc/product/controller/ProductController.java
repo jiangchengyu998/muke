@@ -48,7 +48,7 @@ public class ProductController {
     @CrossOrigin(allowCredentials = "true")   // 对单个接口进行跨域设置
     public ResultVO<List<ProductVO>> list(){
         try {
-            Thread.sleep(3000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

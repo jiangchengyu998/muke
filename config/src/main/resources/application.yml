@@ -8,12 +8,12 @@ spring:
           uri: https://github.com/jiangchengyu998/config-repo.git
           username:
           password:
-          basedir: /root/muke/basedir
+          basedir: E:\muke\config\basedir
 eureka:
   client:
     service-url:
-      defaultZone: http://47.105.169.153:3310/eureka/
+      defaultZone: http://localhost:3310/eureka/
   instance:
     prefer-ip-address: true
-    ip_address: 47.105.169.153
+    # ip_address: 47.105.169.153
     # instance-id: ${eureka.instance.hostname}:${server.port}
