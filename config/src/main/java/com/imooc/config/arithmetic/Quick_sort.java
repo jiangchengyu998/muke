@@ -56,7 +56,7 @@ public class Quick_sort {
         a[j] = temp;
     }
 
-    // 查找数组中 k 大的数字
+    // 查找数组中 k 大的数字，p,r是下标
     private static int quick_find_i_c(int[] a, int p, int r, int k) {
         int q = partition(a, p, r );
         if (q + 1 == k){
