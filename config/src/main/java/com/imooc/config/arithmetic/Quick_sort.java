@@ -10,14 +10,14 @@ package com.imooc.config.arithmetic;
  **/
 public class Quick_sort {
 
-    public static void main(String[] args) {
-        int[] a = {6, 11, 3, 9, 8,1,2,2,2,2,};
-        quick_sort(a, a.length);
-        for (int i : a) {
-            System.out.println(i);
-        }
-        System.out.println(quick_find_i_c(a, 0, a.length - 1, 7));
-    }
+//    public static void main(String[] args) {
+//        int[] a = {6, 11, 3, 9, 8,1,2,2,2,2,};
+//        quick_sort(a, a.length);
+//        for (int i : a) {
+//            System.out.println(i);
+//        }
+//        System.out.println(quick_find_i_c(a, 0, a.length - 1, 7));
+//    }
 
     // 快速排序，A是数组，n表示数组大小
     private static void quick_sort(int [] A, int n){
