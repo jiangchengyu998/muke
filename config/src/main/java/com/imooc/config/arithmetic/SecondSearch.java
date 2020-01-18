@@ -57,7 +57,7 @@ public class SecondSearch {
         while (low <= high) {
             int mid = (low + high) / 2;
             if (a[mid] == value) {
-                if (a[mid+1]>value){
+                if (a[mid+1]>value || mid == n-1){
                     return mid;
                 } else {
                     low = mid + 1;
