@@ -30,7 +30,7 @@ public class SecondSearch {
         while (low <= high) {
             int mid = (low + high) / 2;
             if (a[mid] == value) {
-                if (a[mid-1]<value){
+                if (a[mid-1]<value || (mid ==0)){
                     return mid;
                 } else {
                     high = mid - 1;
