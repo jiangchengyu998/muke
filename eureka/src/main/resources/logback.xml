@@ -9,12 +9,12 @@
     </appender>
 
     <appender name="GELF" class="de.siegmar.logbackgelf.GelfUdpAppender">
-        <graylogHost>192.168.149.10</graylogHost>
+        <graylogHost>localhost</graylogHost>
         <graylogPort>12201</graylogPort>
         <maxChunkSize>508</maxChunkSize>
         <useCompression>true</useCompression>
         <encoder class="de.siegmar.logbackgelf.GelfEncoder">
-            <!--<originHost>localhost</originHost>-->
+<!--            <originHost>localhost</originHost>-->
             <includeRawMessage>false</includeRawMessage>
             <includeMarker>true</includeMarker>
             <includeMdcData>true</includeMdcData>
@@ -27,7 +27,6 @@
             <fullPatternLayout class="ch.qos.logback.classic.PatternLayout">
                 <pattern>%d - %m%n</pattern>
             </fullPatternLayout>
-            <numbersAsString>false</numbersAsString>
             <staticField>app_name:eureka</staticField>
             <staticField>os_arch:${os.arch}</staticField>
             <staticField>os_name:${os.name}</staticField>

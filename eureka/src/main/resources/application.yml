@@ -1,13 +1,13 @@
 
 eureka:
   instance:
-    ip-address: 47.105.169.153
+    ip-address: localhost
     prefer-ip-address: true
   server:
     enable-self-preservation: false   # 这个配置只能在开发环境关闭，自我保护模式
   client:
     service-url:
-      defaultZone: http://47.105.169.153:3310/eureka/
+      defaultZone: http://localhost:3310/eureka/
     register-with-eureka: false   # 自己不注册到eureka
 
 spring:
