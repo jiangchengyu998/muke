@@ -21,12 +21,25 @@ import java.util.List;
 @FeignClient(name = "product", fallback = ProductClient.ProductClientFallback.class)
 public interface ProductClient {
 
+    /**
+     *  测试消息
+     * @return 结果
+     */
     @GetMapping("/msg")
     String productMsg();
 
+    /**
+     * 查询商品信息
+     * @param productIdList 商品id列表
+     * @return 商品信息
+     */
     @PostMapping("/product/listForOrder")
     List<ProductInfoOutput> listForOrder(@RequestBody List<String> productIdList);
 
+    /**
+     *  减库存
+     * @param decreaseStockInputList 购物车列表
+     */
     @PostMapping("/product/decreaseStock")
     void decreaseStock(@RequestBody List<DecreaseStockInput> decreaseStockInputList);
 

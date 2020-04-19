@@ -10,6 +10,7 @@ import com.imooc.product.VO.ResultVO;
  * @Version V1.0
  **/
 public class ResultVOUtils {
+
     public static ResultVO success(Object object){
         ResultVO resultVO = new ResultVO();
         resultVO.setCode(0);

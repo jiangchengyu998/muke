@@ -11,6 +11,7 @@ import lombok.Data;
  **/
 @Data
 public class ResultVO<T> {
+
     /**
      * 错误码
      */

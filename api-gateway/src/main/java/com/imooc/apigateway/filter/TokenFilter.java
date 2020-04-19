@@ -1,11 +1,13 @@
 package com.imooc.apigateway.filter;
 
+import com.imooc.apigateway.utils.CookieUtil;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import org.apache.commons.lang.StringUtils;
 import org.apache.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
 import static org.springframework.cloud.netflix.zuul.filters.support.FilterConstants.PRE_DECORATION_FILTER_ORDER;
@@ -42,9 +44,13 @@ public class TokenFilter extends ZuulFilter {
 
         // 从URL参数获取，也可以从cookie、header获取
         String token = request.getParameter("token");
-        if (StringUtils.isEmpty(token)) {
-//            currentContext.setSendZuulResponse(false);
-//            currentContext.setResponseStatusCode(HttpStatus.SC_UNAUTHORIZED);
+        Cookie cookie = CookieUtil.get(request, "openid");
+        if (cookie == null
+                || StringUtils.isEmpty(cookie.getValue())){
+            if (StringUtils.isEmpty(token)) {
+                currentContext.setSendZuulResponse(false);
+                currentContext.setResponseStatusCode(HttpStatus.SC_UNAUTHORIZED);
+            }
         }
         return null;
     }

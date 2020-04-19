@@ -49,7 +49,7 @@ public class LoginController {
         }
         // 2. 判断角色
 
-        if (RoleEnum.BUYER.getCode() != userInfo.getRole()) {
+        if (!RoleEnum.BUYER.getCode().equals(userInfo.getRole())) {
             return ResultVOUtils.error(ResultEnum.ROLE_ERROR);
         }
         // 3. cookie里设置 openid=abc
@@ -84,7 +84,7 @@ public class LoginController {
         }
         // 2. 判断角色
 
-        if (RoleEnum.SELLER.getCode() != userInfo.getRole()) {
+        if (!RoleEnum.SELLER.getCode().equals(userInfo.getRole())) {
             return ResultVOUtils.error(ResultEnum.ROLE_ERROR);
         }
         // 3. redis 设置key= uuid value = xyz

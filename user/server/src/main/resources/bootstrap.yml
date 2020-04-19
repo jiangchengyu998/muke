@@ -15,3 +15,5 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:3310/eureka/
+server:
+  port: 8085

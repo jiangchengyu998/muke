@@ -40,6 +40,8 @@ eureka:
     prefer-ip-address: true
 
 feign:
+  hystrix:
+    enabled: true
   client:
     config:
       default:
@@ -52,3 +54,19 @@ management:
 logging:
   level:
     org.springframework.cloud.openfeign: debug
+server:
+  port: 8083
+
+#
+hystrix:
+  command:
+    default:  # 全局的配置
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000
+    getProductInfoList:   # 为这个方法单独设置超时时间
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000

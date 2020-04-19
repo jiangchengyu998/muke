@@ -8,13 +8,11 @@ import com.imooc.order.exception.OrderException;
 import com.imooc.order.form.OrderForm;
 import com.imooc.order.service.OrderService;
 import com.imooc.order.utils.ResultVOUtils;
+import com.rabbitmq.tools.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.HashMap;
@@ -45,7 +43,7 @@ public class OrderController {
      * 5. 订单入库
      */
     @PostMapping("/create")
-    public ResultVO<Map<String, String>> create(@Valid OrderForm orderForm, BindingResult bindingResult) {
+    public ResultVO<Map<String, String>> create(@Valid @RequestBody OrderForm orderForm, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
             log.error("【创建订单】参数不正确, orderForm={}", orderForm);

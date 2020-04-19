@@ -45,13 +45,16 @@ public class ProductController {
      * @return
      */
     @GetMapping("/list")
-    @CrossOrigin(allowCredentials = "true")   // 对单个接口进行跨域设置
+    /**
+     * 对单个接口进行跨域设置
+      */
+    @CrossOrigin(allowCredentials = "true")
     public ResultVO<List<ProductVO>> list(){
-        try {
+/*        try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
+        }*/
         // 1. 查询所有在架的商品
         List<ProductInfo> productInfoList = productService.findUpAll();
         // 2. 获取类目type列表
@@ -87,11 +90,8 @@ public class ProductController {
      */
     @PostMapping("/listForOrder")
     public List<ProductInfoOutput> listForOrder(@RequestBody List<String> productList) {
-//        try {
-//            Thread.sleep(2000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
+        /* 测试feign调用超时 */
+        log.error("我没有超时");
         return productService.findList(productList);
     }
 

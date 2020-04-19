@@ -14,6 +14,7 @@ import java.io.IOException;
  * @Version V1.0
  **/
 public class JsonUtil {
+
     private static ObjectMapper objectMapper = new ObjectMapper();
 
     /**

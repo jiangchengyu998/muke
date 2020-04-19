@@ -1,7 +1,6 @@
 package com.imooc.product.common;
 
 import lombok.Data;
-
 import java.math.BigDecimal;
 
 /**
