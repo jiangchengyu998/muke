@@ -95,7 +95,7 @@ public class ProductServiceImpl implements ProductService {
 
             ProductInfo productInfo = productInfoOptional.get();
             // 判断商品是否足够
-            Integer result = productInfo.getProductStock() - cartDTO.getProductQuantity();
+            int result = productInfo.getProductStock() - cartDTO.getProductQuantity();
             if (result < 0) {
                 throw new ProductException(ResultEnum.PRODUCT_STOCK_ERROR);
             }

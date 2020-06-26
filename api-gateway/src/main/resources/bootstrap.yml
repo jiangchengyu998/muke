@@ -43,5 +43,5 @@ server:
 
 # 服务调用超时时间配置
 ribbon:
-  ReadTimeout: 5000
-  SocketTimeout: 5000
+  ReadTimeout: 1500
+  SocketTimeout: 1500

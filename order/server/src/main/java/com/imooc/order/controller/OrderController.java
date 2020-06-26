@@ -58,6 +58,9 @@ public class OrderController {
         }
 
         OrderDTO result = orderService.create(orderDTO);
+        if (result == null) {
+            return ResultVOUtils.fail("下单有误");
+        }
         Map<String, String> map = new HashMap<>();
         map.put("orderId", result.getOrderId());
         return ResultVOUtils.success(map);

@@ -14,6 +14,7 @@ import com.imooc.order.utils.KeyUtil;
 import com.imooc.product.client.ProductClient;
 import com.imooc.product.common.DecreaseStockInput;
 import com.imooc.product.common.ProductInfoOutput;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,6 +35,7 @@ import java.util.stream.Collectors;
  * @Date 2019/11/4
  * @Version V1.0
  **/
+@Slf4j
 @Service
 public class OrderServiceImpl implements OrderService {
 
@@ -79,7 +81,12 @@ public class OrderServiceImpl implements OrderService {
         List<DecreaseStockInput> cartDTOList = orderDTO.getOrderDetailList().stream()
                 .map(e -> new DecreaseStockInput(e.getProductId(), e.getProductQuantity()))
                 .collect(Collectors.toList());
-        productClient.decreaseStock(cartDTOList);
+        try {
+            productClient.decreaseStock(cartDTOList);
+        } catch (Exception e) {
+            log.error("扣库存有误：{}", e.getMessage());
+            return null;
+        }
 
         // 订单入库
         OrderMaster orderMaster = new OrderMaster();

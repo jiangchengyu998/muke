@@ -3,6 +3,8 @@ package com.imooc.order.utils;
 
 import com.imooc.order.VO.ResultVO;
 
+import java.util.Map;
+
 /**
  * @ClassName ResultVOUtils
  * @Description: 返回工具类
@@ -15,6 +17,15 @@ public class ResultVOUtils {
         ResultVO resultVO = new ResultVO();
         resultVO.setCode(0);
         resultVO.setMsg("成功");
+        resultVO.setData(object);
+
+        return resultVO;
+    }
+
+    public static ResultVO<Map<String, String>> fail(Object object) {
+        ResultVO resultVO = new ResultVO();
+        resultVO.setCode(-1);
+        resultVO.setMsg("失败");
         resultVO.setData(object);
 
         return resultVO;

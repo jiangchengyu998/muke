@@ -2,6 +2,7 @@ package com.imooc.product.client;
 
 import com.imooc.product.common.DecreaseStockInput;
 import com.imooc.product.common.ProductInfoOutput;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.openfeign.FeignClient;
 //import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.stereotype.Component;
@@ -44,6 +45,7 @@ public interface ProductClient {
     void decreaseStock(@RequestBody List<DecreaseStockInput> decreaseStockInputList);
 
     @Component
+    @Slf4j
     static class ProductClientFallback implements ProductClient{
 
         @Override
@@ -53,12 +55,13 @@ public interface ProductClient {
 
         @Override
         public List<ProductInfoOutput> listForOrder(List<String> productIdList) {
+            log.error("出错了，超时了");
             return null;
         }
 
         @Override
         public void decreaseStock(List<DecreaseStockInput> decreaseStockInputList) {
-
+            throw new RuntimeException("出错了");
         }
     }
 }
