@@ -1,11 +1,18 @@
-<configuration>
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
 
-    <appender name="consoleLog" class="ch.qos.logback.core.ConsoleAppender">
-        <layout class="ch.qos.logback.classic.PatternLayout">
-            <pattern>
-                %d - %msg%n
-            </pattern>
-        </layout>
+    <property name="LOG_FILE_NAME_PATTERN" value="logs/auth.%d{yyyy-MM-dd}.%i.log"/>
+
+    <!-- 日志格式 -->
+    <property name="CONSOLE_LOG_PATTERN"
+              value="%clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%c){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"/>
+
+    <!--输出到控制台-->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+        </encoder>
     </appender>
 
     <appender name="GELF" class="de.siegmar.logbackgelf.GelfUdpAppender">
@@ -36,7 +43,7 @@
     </appender>
 
     <root level="info">
-        <appender-ref ref="consoleLog" />
+        <appender-ref ref="console" />
         <appender-ref ref="GELF" />
     </root>
 

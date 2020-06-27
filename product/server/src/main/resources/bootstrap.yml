@@ -8,7 +8,7 @@ spring:
         service-id: CONFIG
       profile: dev
   zipkin:
-    base-url: http://192.168.149.10:9411/
+    base-url: http://192.168.99.100:9411/
     sender:
       type: web
   sleuth:
