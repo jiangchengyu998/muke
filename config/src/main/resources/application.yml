@@ -21,3 +21,5 @@ management:
   endpoints:
     web:
       expose: "*"
+server:
+  port: 9999

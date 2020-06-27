@@ -50,7 +50,11 @@ feign:
         loggerLevel: basic
 
 management:
-  context-path: /
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+
 logging:
   level:
     org.springframework.cloud.openfeign: debug

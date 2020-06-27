@@ -43,12 +43,12 @@ public class OrderController {
      * 5. 订单入库
      */
     @PostMapping("/create")
-    public ResultVO<Map<String, String>> create(@Valid @RequestBody OrderForm orderForm, BindingResult bindingResult) {
+    public ResultVO<Map<String, String>> create(@Valid @RequestBody OrderForm orderForm, ResultVO<BindingResult> bindingResult ) {
 
-        if (bindingResult.hasErrors()) {
+        if (bindingResult.getData() != null && bindingResult.getData().hasErrors()) {
             log.error("【创建订单】参数不正确, orderForm={}", orderForm);
             throw new OrderException(ResultEnum.PARAM_ERROR.getCode(),
-                    Objects.requireNonNull(bindingResult.getFieldError()).getDefaultMessage());
+                    Objects.requireNonNull(bindingResult.getData().getFieldError()).getDefaultMessage());
         }
         // orderForm --> orderDTO
         OrderDTO orderDTO = OrderForm2OrderDTOConverter.convert(orderForm);
