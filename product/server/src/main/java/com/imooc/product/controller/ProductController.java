@@ -40,8 +40,6 @@ public class ProductController {
     @Autowired
     private CategoryService categoryService;
 
-    @Resource
-    private OrderClient orderClient;
 
     /**
      * 1. 查询所有在架的商品
@@ -121,11 +119,9 @@ public class ProductController {
      *
      * @param orderId
      */
-    @GetMapping("/getOrder")
-    public com.imooc.order.common.ResultVO<OrderId> getOrder(@RequestParam("orderId") String orderId){
-        OrderId orderId1 = new OrderId();
-        orderId1.setOrderId(orderId);
-        return orderClient.getOder(orderId1);
+    @PostMapping("/getOrder")
+    public com.imooc.order.common.ResultVO<OrderId> getOrder(@RequestBody OrderId orderId){
+        return productService.getOder(orderId);
     }
 
 }

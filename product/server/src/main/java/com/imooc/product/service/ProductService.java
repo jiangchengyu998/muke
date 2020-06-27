@@ -1,5 +1,7 @@
 package com.imooc.product.service;
 
+import com.imooc.order.common.OrderId;
+import com.imooc.order.common.ResultVO;
 import com.imooc.product.common.DecreaseStockInput;
 import com.imooc.product.common.ProductInfoOutput;
 import com.imooc.product.dataobject.ProductInfo;
@@ -31,4 +33,6 @@ public interface ProductService {
      * @param stockInputList 购物车列表
      */
     void decreaseStock(List<DecreaseStockInput> stockInputList);
+
+    ResultVO<OrderId> getOder(OrderId orderId);
 }

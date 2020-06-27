@@ -1,5 +1,8 @@
 package com.imooc.product.service.impl;
 
+import com.imooc.order.client.OrderClient;
+import com.imooc.order.common.OrderId;
+import com.imooc.order.common.ResultVO;
 import com.imooc.product.common.DecreaseStockInput;
 import com.imooc.product.common.ProductInfoOutput;
 import com.imooc.product.dataobject.ProductInfo;
@@ -15,6 +18,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +41,9 @@ public class ProductServiceImpl implements ProductService {
 
     @Autowired
     private AmqpTemplate amqpTemplate;
+
+    @Resource
+    private OrderClient orderClient;
 
     /**
      * 查询所有商品列表
@@ -80,6 +87,11 @@ public class ProductServiceImpl implements ProductService {
 
         amqpTemplate.convertAndSend("productInfo", JsonUtil.toJson(productInfoOutputList));
         log.info("发送成功");
+    }
+
+    @Override
+    public ResultVO<OrderId> getOder(OrderId orderId) {
+        return orderClient.getOder(orderId);
     }
 
     @Transactional

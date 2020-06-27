@@ -14,6 +14,32 @@ spring:
   sleuth:
     sampler:
       probability: 1
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+feign:
+  hystrix:
+    enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: basic
+hystrix:
+  command:
+    default:  # 全局的配置
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000
+    getProductInfoList:   # 为这个方法单独设置超时时间
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000
 eureka:
   instance:
     prefer-ip-address: true   # \u4F7F\u7528ip\u5730\u5740\u8BBF\u95EEeureka
