@@ -114,11 +114,6 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-zipkin</artifactId>
         </dependency>
-<!--如果已经有了，不需要再引入-->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-actuator</artifactId>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>de.siegmar</groupId>
             <artifactId>logback-gelf</artifactId>
