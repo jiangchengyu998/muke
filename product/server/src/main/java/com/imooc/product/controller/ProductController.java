@@ -1,5 +1,7 @@
 package com.imooc.product.controller;
 
+import com.imooc.order.client.OrderClient;
+import com.imooc.order.common.OrderId;
 import com.imooc.product.VO.ProductInfoVO;
 import com.imooc.product.VO.ProductVO;
 import com.imooc.product.VO.ResultVO;
@@ -15,6 +17,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -36,6 +39,9 @@ public class ProductController {
 
     @Autowired
     private CategoryService categoryService;
+
+    @Resource
+    private OrderClient orderClient;
 
     /**
      * 1. 查询所有在架的商品
@@ -109,6 +115,17 @@ public class ProductController {
     @PostMapping("/decreaseStock")
     public void decreaseStock(@RequestBody List<DecreaseStockInput> decreaseStockInputList){
         productService.decreaseStock(decreaseStockInputList);
+    }
+
+    /**
+     *
+     * @param orderId
+     */
+    @GetMapping("/getOrder")
+    public com.imooc.order.common.ResultVO<OrderId> getOrder(@RequestParam("orderId") String orderId){
+        OrderId orderId1 = new OrderId();
+        orderId1.setOrderId(orderId);
+        return orderClient.getOder(orderId1);
     }
 
 }

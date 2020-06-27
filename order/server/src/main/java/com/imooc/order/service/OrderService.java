@@ -1,5 +1,6 @@
 package com.imooc.order.service;
 
+import com.imooc.order.common.OrderId;
 import com.imooc.order.dto.OrderDTO;
 
 /**
@@ -13,4 +14,6 @@ public interface OrderService {
     OrderDTO create(OrderDTO dto);
 
     OrderDTO finish(String orderId);
+
+    OrderId getOder(OrderId orderId);
 }

@@ -1,6 +1,7 @@
 package com.imooc.order.controller;
 
-import com.imooc.order.VO.ResultVO;
+import com.imooc.order.common.ResultVO;
+import com.imooc.order.common.OrderId;
 import com.imooc.order.converter.OrderForm2OrderDTOConverter;
 import com.imooc.order.dto.OrderDTO;
 import com.imooc.order.enums.ResultEnum;
@@ -8,7 +9,6 @@ import com.imooc.order.exception.OrderException;
 import com.imooc.order.form.OrderForm;
 import com.imooc.order.service.OrderService;
 import com.imooc.order.utils.ResultVOUtils;
-import com.rabbitmq.tools.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
@@ -69,6 +69,11 @@ public class OrderController {
     @PostMapping("/finish")
     public ResultVO<OrderDTO> finish(@RequestParam("orderId") String orderId){
         return ResultVOUtils.success(orderService.finish(orderId));
+    }
+
+    @PostMapping("/getOder")
+    public ResultVO<OrderId> getOder(@RequestBody OrderId orderId){
+        return ResultVOUtils.success(orderService.getOder(orderId));
     }
 
 }

@@ -1,5 +1,6 @@
 package com.imooc.order.service.impl;
 
+import com.imooc.order.common.OrderId;
 import com.imooc.order.dataobject.OrderDetail;
 import com.imooc.order.dataobject.OrderMaster;
 import com.imooc.order.dto.OrderDTO;
@@ -20,6 +21,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import javax.annotation.Resource;
 import javax.transaction.Transactional;
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -44,7 +46,7 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private OrderDetailRepository orderDetailRepository;
 
-    @Autowired
+    @Resource
     private ProductClient productClient;
 
     /**
@@ -130,4 +132,12 @@ public class OrderServiceImpl implements OrderService {
 
         return orderDTO;
     }
+
+    @Override
+    public OrderId getOder(OrderId orderId) {
+        Optional<OrderMaster> byId = orderMasterRepository.findById(orderId.getOrderId());
+        byId.ifPresent(orderMaster -> BeanUtils.copyProperties(orderMaster, orderId));
+        return orderId;
+    }
+
 }

@@ -1,7 +1,7 @@
 package com.imooc.order.utils;
 
 
-import com.imooc.order.VO.ResultVO;
+import com.imooc.order.common.ResultVO;
 
 import java.util.Map;
 

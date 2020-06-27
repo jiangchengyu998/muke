@@ -71,6 +71,20 @@
             <artifactId>logback-gelf</artifactId>
             <scope>runtime</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.imooc</groupId>
+            <artifactId>order-client</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+
+        </dependency>
+
+        <dependency>
+            <groupId>com.imooc</groupId>
+            <artifactId>order-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+
+        </dependency>
     </dependencies>
 
     <build>
