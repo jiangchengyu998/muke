@@ -13,6 +13,9 @@ import com.imooc.product.service.CategoryService;
 import com.imooc.product.service.ProductService;
 import com.imooc.product.utils.ResultVOUtils;
 import io.swagger.annotations.ApiOperation;
+import com.netflix.ribbon.proxy.annotation.Http;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +36,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/product")
 @Slf4j
+@Api(tags = "商品控制器")
 public class ProductController {
 
     @Autowired
@@ -49,6 +53,7 @@ public class ProductController {
      * 4. 构造数据
      * @return
      */
+    @ApiOperation(value = "查询所有商品", httpMethod = "GET")
     @GetMapping("/list")
     /**
      * 对单个接口进行跨域设置
@@ -93,7 +98,6 @@ public class ProductController {
      * @param productList 商品id列表
      * @return 商品列表
      */
-    @ApiOperation("ddd")
     @PostMapping("/listForOrder")
     public List<ProductInfoOutput> listForOrder(@RequestBody List<String> productList) {
 
