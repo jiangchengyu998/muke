@@ -28,7 +28,8 @@ public class Aggregator {
         if (count != 0) {
             avgRespTime = sumRespTime / count;
         }
-        long tps = (long)(count / durationInMillis * 1000);
+        System.out.println(durationInMillis);
+        long tps = (long)(count * 1000 / durationInMillis );
         Collections.sort(requestInfos, new Comparator<RequestInfo>() {
             @Override
             public int compare(RequestInfo o1, RequestInfo o2) {

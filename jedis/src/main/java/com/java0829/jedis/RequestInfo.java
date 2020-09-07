@@ -1,4 +1,4 @@
-package com.p.v_1;
+package com.java0829.jedis;
 
 public class RequestInfo {
     private String apiName;
