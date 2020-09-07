@@ -12,6 +12,7 @@ import com.imooc.product.dataobject.ProductInfo;
 import com.imooc.product.service.CategoryService;
 import com.imooc.product.service.ProductService;
 import com.imooc.product.utils.ResultVOUtils;
+import io.swagger.annotations.ApiOperation;
 import com.netflix.ribbon.proxy.annotation.Http;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
