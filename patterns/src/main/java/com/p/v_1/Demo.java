@@ -9,9 +9,9 @@ public class Demo {
         ConsoleReporter consoleReporter = new ConsoleReporter(storage);
         consoleReporter.startRepeatedReport(10, 10);
 
-//        EmailReporter emailReporter = new EmailReporter(storage);
-//        emailReporter.addToAddress("wangzheng@xzg.com");
-//        emailReporter.startDailyReport();
+        EmailReporter emailReporter = new EmailReporter(storage);
+        emailReporter.addToAddress("291550492@qq.com");
+        emailReporter.startDailyReport();
 
         MetricsCollector collector = new MetricsCollector(storage);
         collector.recordRequest(new RequestInfo("register", 123, 10234));
