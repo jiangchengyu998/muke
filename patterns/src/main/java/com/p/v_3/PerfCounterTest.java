@@ -1,7 +1,6 @@
 package com.p.v_3;
 
 
-import redis.clients.jedis.Jedis;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,8 +10,9 @@ public class PerfCounterTest {
 
         ConsoleReporter consoleReporter = new ConsoleReporter();
         consoleReporter.startRepeatedReport(60, 60);
+
         List emailToAddresses = new ArrayList<>();
-        emailToAddresses.add("wangzheng@xzg.com");
+        emailToAddresses.add("jchengyu0829@163.com");
         EmailReporter emailReporter = new EmailReporter(emailToAddresses);
         emailReporter.startDailyReport();
 

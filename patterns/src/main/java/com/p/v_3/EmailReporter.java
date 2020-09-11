@@ -10,7 +10,9 @@ public class EmailReporter extends ScheduledReporter {
     private Aggregator aggregator;
     private StatViewer viewer;
 
-    public EmailReporter(List emailToAddresses) { this(new RedisMetricsStorage(), new Aggregator(), new EmailViewer(emailToAddresses)); }
+    public EmailReporter(List emailToAddresses) {
+        this(new RedisMetricsStorage(), new Aggregator(), new EmailViewer(emailToAddresses));
+    }
 
     public EmailReporter(MetricsStorage metricsStorage, Aggregator aggregator, StatViewer viewer) {
         super(metricsStorage, aggregator, viewer);
@@ -46,6 +48,8 @@ public class EmailReporter extends ScheduledReporter {
         calendar.set(Calendar.MINUTE, 0);
         calendar.set(Calendar.SECOND, 0);
         calendar.set(Calendar.MILLISECOND, 0);
-        return calendar.getTime();
+//        return calendar.getTime();
+        return new Date();
     }
+
 }

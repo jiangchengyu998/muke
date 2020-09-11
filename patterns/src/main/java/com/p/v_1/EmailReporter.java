@@ -106,7 +106,7 @@ public class EmailReporter {
                 }
 
             }
-        }, date, 1 * 1000 * 20);
+        }, date, 1000 * 20);
     }
 }
 
