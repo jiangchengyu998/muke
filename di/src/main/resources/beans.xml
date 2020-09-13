@@ -1,0 +1,12 @@
+
+<!--配置文件beans.xml-->
+<beans>
+    <bean id="rateLimiter" class="com.di.RateLimiter">
+        <constructor-arg ref="redisCounter"/>
+    </bean>
+
+    <bean id="redisCounter" class="com.di.RedisCounter" scope="singleton" lazy-init="true">
+        <constructor-arg type="String" value="127.0.0.1"/>
+        <constructor-arg type="String" value="6379"/>
+    </bean>
+</beans>
