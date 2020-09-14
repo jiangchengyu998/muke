@@ -6,7 +6,7 @@ package com.Proxy.Dynamic;
 public class DemoDynamic {
     public static void main(String[] args) {
         //MetricsCollectorProxy使用举例
-        MetricsCollectorProxy proxy = new MetricsCollectorProxy();
+        UserControllerProxy proxy = new UserControllerProxy();
         IUserController userController = (IUserController) proxy.createProxy(new UserController());
 
         for (int i = 0; i < 10000; i++) {
