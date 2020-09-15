@@ -6,7 +6,7 @@ import com.Proxy.demo.RequestInfo;
 import com.Proxy.demo.UserVo;
 
 public class UserControllerProxy implements IUserController {
-    private MetricsCollector metricsCollector;
+    private MetricsCollector metricsCollector;   // 拿这个做其他业务
     private UserController userController;
 
     public UserControllerProxy(UserController userController) {
