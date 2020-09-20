@@ -23,9 +23,14 @@ public class Shutdown {
         private long i;
         private volatile boolean on = true;
         public void run() {
+            System.out.println(on);
+            System.out.println(!Thread.currentThread().isInterrupted());
             while (on && !Thread.currentThread().isInterrupted()) {
                 i++;
             }
+            System.out.println("======");
+            System.out.println(on);
+            System.out.println(!Thread.currentThread().isInterrupted());
             System.out.println("Count i = " + i);
 
         }
