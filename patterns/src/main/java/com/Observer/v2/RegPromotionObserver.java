@@ -8,7 +8,7 @@ public class RegPromotionObserver implements RegObserver {
      * @param userId
      */
     @Override
-    public void handleRegSuccess(long userId) {
+    public void handleRegSuccess(Long userId) {
         Thread thread = new Thread(() -> promotionService.issueNewUserExperienceCash(userId));
         thread.start();
     }

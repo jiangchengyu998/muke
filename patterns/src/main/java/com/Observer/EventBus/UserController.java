@@ -1,9 +1,11 @@
-package com.Observer.v3;
+package com.Observer.EventBus;
 
+
+import com.Observer.v2.RegNotificationObserver;
 import com.Observer.v2.UserService;
-import com.google.common.eventbus.AsyncEventBus;
-import com.google.common.eventbus.EventBus;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.Executors;
 
@@ -29,10 +31,16 @@ public class UserController {
     public Long register(String telephone, String password) {
         //省略输入参数的校验代码
         //省略userService.register()异常的try-catch代码
-        long userId = userService.register(telephone, password);
+        Long userId = userService.register(telephone, password);
 
         eventBus.post(userId);
 
         return userId;
+    }
+
+    public static void main(String[] args) {
+        UserController userController = new UserController();
+        userController.setRegObservers(Collections.singletonList(new RegNotificationObserver()));
+        userController.register("15078367322", "123456");
     }
 }
