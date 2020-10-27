@@ -1,0 +1,13 @@
+
+person:
+  name: 蒋承裕${random.uuid}
+  age: ${random.long(1,25)}
+  birth: 2017/12/12
+  maps: {k1: v1, k2: v2}
+  lists:
+    - lisi
+    - wangwu
+  dog:
+    name: ${person.last-name}的_小狗
+    age: 2
+  last-name: jiang
