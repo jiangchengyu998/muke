@@ -1,7 +1,10 @@
 package com.Strategy.v3;
 
 
+import java.util.concurrent.locks.ReentrantLock;
+
 public class OrderService {
+    // 策略的使用
     public double discount(Order order) {
         double discount = 0.0;
         OrderType type = order.getType();
@@ -17,6 +20,14 @@ public class OrderService {
 
     // 策略的使用
     public double discount1(Order order) {
+
+        ReentrantLock lock = new ReentrantLock();
+
+        lock.lock();
+
+        lock.unlock();
+
+
         OrderType type = order.getType();
         DiscountStrategy discountStrategy = DiscountStrategyFactory.getDiscountStrategy(type);
         return discountStrategy.calDiscount(order);
