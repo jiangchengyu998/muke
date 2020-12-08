@@ -3,7 +3,10 @@ package com.offer.p2;
 public class Fourteen {
 
     public static void main(String[] args) {
-        System.out.println(numberOf(15<<24));
+        System.out.println(numberOf(0x7fffffff));
+        System.out.println(numberOf(0x80000000));
+        System.out.println(numberOf(0xffffffff));
+
 
     }
 
