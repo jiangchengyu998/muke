@@ -12,7 +12,8 @@ public class Ten {
 
     public static void main(String[] args) {
 //        int[] a = {1,0,1,1,1};
-        int[] a = {1,1,1,0,1};
+//        int[] a = {1,1,1,0,1};
+        int[] a = {3,4,5,0,1,2};
         int min = min(a, a.length);
         System.out.println(min);
     }

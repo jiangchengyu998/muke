@@ -9,6 +9,10 @@ public class MarioStateMachine {
         this.currentState = State.SMALL;
     }
 
+
+    /**
+     * 从小马里奥变为超级马里奥
+     */
     public void obtainMushRoom() {
         if (this.currentState.equals(State.SMALL)) {
             this.currentState = State.SUPER;
@@ -16,6 +20,9 @@ public class MarioStateMachine {
         }
     }
 
+    /**
+     * 从小马里奥、超级马里奥变为斗篷马里奥
+     */
     public void obtainCape() {
         if (this.currentState.equals(State.SMALL) || this.currentState.equals(State.SUPER)) {
             this.currentState = State.CAPE;
@@ -23,6 +30,9 @@ public class MarioStateMachine {
         }
     }
 
+    /**
+     * 从小马里奥、超级马里奥变为火焰马里奥
+     */
     public void obtainFireFlower() {
         if (this.currentState.equals(State.SMALL) || this.currentState.equals(State.SUPER)) {
             this.currentState = State.FIRE;
@@ -30,6 +40,9 @@ public class MarioStateMachine {
         }
     }
 
+    /**
+     * 遇到怪物，变为小马里奥
+     */
     public void meetMonster() {
         if (this.currentState.equals(State.CAPE)) {
             this.currentState = State.SMALL;

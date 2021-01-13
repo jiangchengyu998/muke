@@ -7,9 +7,9 @@ package com.offer.p3;
 public class Two {
 
     public static void main(String[] args) {
-//        printMaxOfN_1(10);
+        printMaxOfN_1(10);
 //        printToMaxOfN_2(2);
-        printToMaxOfN_3(8);
+//        printToMaxOfN_3(8);
     }
 
     public static void printMaxOfN_1(int n) {
