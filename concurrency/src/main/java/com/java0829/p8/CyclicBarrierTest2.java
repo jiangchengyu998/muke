@@ -1,6 +1,7 @@
 package com.java0829.p8;
 
 import java.util.concurrent.CyclicBarrier;
+import java.util.concurrent.TimeUnit;
 
 public class CyclicBarrierTest2 {
 
@@ -16,6 +17,12 @@ public class CyclicBarrierTest2 {
                 } catch (Exception e) {
 
                 }
+                try {
+                    TimeUnit.SECONDS.sleep(1);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
                 System.out.println(1);
             }
         }).start();
